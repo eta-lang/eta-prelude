@@ -8,6 +8,7 @@ import Eta.Prelude.Classes
 
 import qualified Prelude
 import qualified Control.Arrow
+import qualified System.Environment
 
 import Prelude as Exported
   ( Bool(..)
@@ -16,8 +17,17 @@ import Prelude as Exported
 
   , String
   , IO
+  , Char
 
   , Num
+
+  , (+)
+  , (-)
+  , (/)
+  , (*)
+  , (<)
+  , (>)
+  , (==)
   )
 
 
@@ -131,16 +141,6 @@ True
 (||) :: Bool -> Bool -> Bool
 (||) = (Prelude.||)
 
--- ** Math and numbers
-(+) :: (Num a) => a -> a -> a
-(+) = (Prelude.+)
-
-(-) :: (Num a) => a -> a -> a
-(-) = (Prelude.-)
-
-(*) :: (Num a) => a -> a -> a
-(*) = (Prelude.*)
-
 
 -- * Functions
 -- ** General functions
@@ -240,10 +240,40 @@ the same input
 >>> universe 35
 42
 >>> map (constantly 10) [1..3]
-[10, 10, 10]
+[10,10,10]
 -}
 constantly :: a -> b -> a
 constantly = Prelude.const
+
+{-|
+Stops execution and displays an error message.
+-}
+-- die :: HasCallStack => String -> a
+die = Prelude.error
+{-# WARNING die "die detected: Partial functions should be avoided"#-}
+
+
+{-|
+Converts a two argument function in a
+function that accepts a pair
+
+>>> addElements = uncurry (+)
+>>> addElements (1,2)
+3
+-}
+uncurry :: (a -> b -> c) -> ((a, b) -> c)
+uncurry = Prelude.uncurry
+
+{-|
+Converts a function that accepts a pair in a
+two argument function
+
+>>> firstArgument = curry first
+>>> firstArgument 1 2
+1
+-}
+curry :: ((a, b) -> c) -> (a -> b -> c)
+curry = Prelude.curry
 
 -- ** Boolean
 {-|
@@ -261,10 +291,11 @@ not = Prelude.not
 
 Used for guards:
 >>> :{
-factorial n
- | n < 0      = 1
- | otherwise  = n * (factorial $ n - 1)
+ factorial n
+  | n == 0      = 1
+  | otherwise   = n * factorial (n - 1)
 :}
+
 >>> factorial 3
 6
 -}
@@ -291,3 +322,9 @@ then 'printLine's it.
 -}
 printShow :: String -> IO ()
 printShow = Prelude.print
+
+{-|
+Returns the arguments of the program
+-}
+getArgs :: IO [String]
+getArgs = System.Environment.getArgs

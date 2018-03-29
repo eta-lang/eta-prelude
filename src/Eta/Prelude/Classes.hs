@@ -4,6 +4,9 @@ module Eta.Prelude.Classes
   )
 where
 
+import Eta.Prelude.Classes.Monoid as Exported
+import Eta.Prelude.Classes.Functor as Exported
+
 import Prelude as Exported
   ( Show
   , show

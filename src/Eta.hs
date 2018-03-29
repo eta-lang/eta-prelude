@@ -41,63 +41,6 @@ import Eta.Prelude.PipeOperators as Export
 -- * Concepts
 
 -- ** Functor
-{-|
-The 'Functor' type class defines that a type
-can have a 'map' operation which can be used
-to map a function over the elements of it.
-
-The list and the 'Maybe' types are examples of
-instances of 'Functor'.
-
-@
-  >>> map (+1) [1, 2, 3]
-  [2, 3, 4]
-@
-
-/Mnemonic: Mappable/
--}
-map :: (Functor f) => (a -> b) -> f a -> f b
-map = Prelude.fmap
-
-
--- *** Map forward
-{-|
-Maps the function of the right to the Functor of the left:
-
-@
-  >>> [1, 2, 3] |$> (+ 1)
-  [2, 3, 4]
-@
--}
-(|$>) :: (Functor f) => f a -> (a -> b) -> f b
-(|$>) = flip map
-
-
--- *** Map backwards
-{-|
-Maps the function of the left to the Functor of the right:
-
-@
-  >>> (+1) \<$| [1, 2, 3]
-  [2, 3, 4]
-@
--}
-(<$|) :: (Functor f) => (a -> b) -> f a -> f b
-(<$|) = map
-
-
--- *** Discard
-{-|
-Discards the value inside of the functor.
-
-@
-  >>> discard [1, 2, 3]
-  [(), (), ()]
-@
--}
-discard :: (Functor f) => f a -> f ()
-discard = Data.Functor.void
-
 
 
 -- ** Applicative
@@ -358,7 +301,7 @@ Errors if the structure is empty
 -}
 unsafeMaximum :: (Ord a, Foldable f) => f a -> a
 unsafeMaximum = Data.Foldable.maximum
-
+{-# WARNING unsafeMaximum "unsafeMaximum detected: Partial functions should be avoided"#-}
 
 {-|
 Smallest element in a structure
@@ -388,6 +331,7 @@ Errors if the structure is empty
 -}
 unsafeMinimum :: (Ord a, Foldable f) => f a -> a
 unsafeMinimum = Data.Foldable.minimum
+{-# WARNING unsafeMinimum "unsafeMinimum detected: Partial functions should be avoided"#-}
 
 
 {-|
@@ -576,6 +520,7 @@ read = Text.Read.readMaybe
 -}
 unsafeRead :: (Read a) => String -> a
 read = Prelude.read
+{-# WARNING unsafeRead "unsafeRead detected: Partial functions should be avoided"#-}
 
 -- ** String operations
 {-|
