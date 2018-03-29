@@ -519,7 +519,7 @@ read = Text.Read.readMaybe
 'Nothing' on parse error, it fails.
 -}
 unsafeRead :: (Read a) => String -> a
-read = Prelude.read
+unsafeRead = Prelude.read
 {-# WARNING unsafeRead "unsafeRead detected: Partial functions should be avoided"#-}
 
 -- ** String operations
