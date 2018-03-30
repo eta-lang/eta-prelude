@@ -1,3 +1,4 @@
+-- | * __STUFF HERE IS WORK IN PROGRESS, IGNORE THIS MODULE__
 module Eta.Core
   ( module Eta.Core
   , module Exported

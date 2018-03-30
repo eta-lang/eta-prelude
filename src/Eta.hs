@@ -1,4 +1,4 @@
--- | The Eta
+-- | * __STUFF HERE IS WORK IN PROGRESS, IGNORE THIS MODULE__
 module Eta
   ( module Eta
   , module Export
