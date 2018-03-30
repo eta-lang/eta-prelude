@@ -4,7 +4,7 @@ module Eta.Prelude.Core
   )
 where
 
-import Eta.Prelude.Classes
+import Eta.Prelude.Classes as Exported
 
 import qualified Prelude
 import qualified Control.Arrow
@@ -175,51 +175,6 @@ identity :: a -> a
 identity = Prelude.id
 
 {-|
-Takes a default value and a
-'Maybe' value. If the Maybe is 'Nothing',
-it returns the default value, returns the
-contents of the Maybe
->>> let x = Just "Something"
->>> x `getOrElse` "Nothing found!"
-"Something"
-
->>> let y = Nothing
->>> y `getOrElse` "Nothing found!"
-"Nothing found!"
--}
-getOrElse :: Maybe a -> a -> a
-getOrElse x def = handleMaybe def identity x
-
-{-|
-Handler for the 'Maybe' type
-Takes a default value, a function and a
-'Maybe' value. If the Maybe is 'Nothing',
-it returns the default value, otherwise,
-it maps the function and returns the
-result
-
->>> let myMaybe = Just 42
->>> handleMaybe "Nothing found" (\x -> "Got: " <+> show x) myMaybe
-"Got: 42"
-
->>> let myMaybe' = Nothing
->>> handleMaybe "Nothing found" (\x -> "Got: " <+> show x) myMaybe'
-"Nothing found"
--}
-handleMaybe :: b -> (a -> b) -> Maybe a -> b
-handleMaybe = Prelude.maybe
-
-{-|
-Handler for the 'Either' type
-Takes two functions and an 'Either'.
-
-If the value is a 'Left a' apply the first function to 'a'.
-If the value is a 'Right b' apply the first function to 'b'.
--}
-handleEither :: (a -> c) -> (b -> c) -> Either a b -> c
-handleEither = Prelude.either
-
-{-|
 Flips the arguments of a function
 
 >>> subtract a b = a - b
@@ -275,6 +230,34 @@ two argument function
 curry :: ((a, b) -> c) -> (a -> b -> c)
 curry = Prelude.curry
 
+
+{-|
+Swaps the components of a pair
+
+>>> swap (1,2)
+(2,1)
+-}
+swap :: (a, b) -> (b, a)
+swap (x, y) = (y, x)
+
+{-|
+A value that can be of any type. The compiler will recognize this
+and insert an error message appropriate to the context where it
+appears.
+
+/Usually, also called __Bottom__/
+-}
+undefined = Prelude.undefined
+
+{-|
+Returns 'undefined' if 'a' is 'undefined', otherwise returns 'b'
+
+>>> stopIfUndefined 1 2
+2
+-}
+stopIfUndefined :: a -> b -> b
+stopIfUndefined = Prelude.seq
+
 -- ** Boolean
 {-|
 Boolean not
@@ -284,23 +267,6 @@ False
 -}
 not :: Bool -> Bool
 not = Prelude.not
-
-
-{-|
-'otherwise' is defined as 'True'.
-
-Used for guards:
->>> :{
- factorial n
-  | n == 0      = 1
-  | otherwise   = n * factorial (n - 1)
-:}
-
->>> factorial 3
-6
--}
-otherwise :: Bool
-otherwise  = Prelude.otherwise
 
 
 -- ** IO operations

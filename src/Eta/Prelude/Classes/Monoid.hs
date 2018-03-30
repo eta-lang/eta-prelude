@@ -1,3 +1,13 @@
+{-|
+The 'Monoid' type class defines that a type
+can have an 'append' operation which can be used
+to append two things of the same type
+
+The List, and String types are examples of
+instances of 'Monoid'.
+
+/Mnemonic: Appendable/
+-}
 module Eta.Prelude.Classes.Monoid
 where
 
@@ -10,19 +20,11 @@ import Prelude as Exported
   , mempty
   )
 
--- ** Monoid
 {-|
-The 'Monoid' type class defines that a type
-can have an 'append' operation which can be used
-to append two things of the same type
-
-The List, and String types are examples of
-instances of 'Monoid'.
+Appends two values.
 
 >>> append "Hello " "world!"
 "Hello world!"
-
-/Mnemonic: Appendable/
 -}
 append :: (Monoid a) => a -> a -> a
 append = mappend

@@ -1,3 +1,13 @@
+{-|
+The 'Functor' type class defines that a type
+can have a 'map' operation which can be used
+to map a function over the elements of it.
+
+The list and the 'Maybe' types are examples of
+instances of 'Functor'.
+
+/Mnemonic: Mappable/
+-}
 module Eta.Prelude.Classes.Functor
   ( module Eta.Prelude.Classes.Functor
   ,module Exported
@@ -14,19 +24,10 @@ import Data.Functor as Exported
  )
 
 {-|
-The 'Functor' type class defines that a type
-can have a 'map' operation which can be used
-to map a function over the elements of it.
-
-The list and the 'Maybe' types are examples of
-instances of 'Functor'.
-
+Maps a function over a value
 
 >>> map (+1) [1,2,3]
 [2,3,4]
-
-
-/Mnemonic: Mappable/
 -}
 map :: (Functor f) => (a -> b) -> f a -> f b
 map = Prelude.fmap

@@ -35,8 +35,6 @@ import Prelude as Export
   , flip
   )
 
-import Eta.Prelude.PipeOperators as Export
-
 
 -- * Concepts
 
