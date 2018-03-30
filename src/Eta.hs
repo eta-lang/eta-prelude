@@ -1,4 +1,4 @@
--- | The Eta Prelude
+-- | The Eta
 module Eta
   ( module Eta
   , module Export
