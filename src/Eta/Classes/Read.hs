@@ -5,17 +5,16 @@ a value. Think of this as a naive form of deserialization.
 -}
 module Eta.Classes.Read
   ( module Eta.Classes.Read
-  , module Exported
+  , Read(readsPrec)
   )
 where
 
 import qualified Prelude
 import qualified Text.Read
-import Prelude (String, Maybe(..), Int)
-import Prelude as Exported
-  ( Read
-  , readsPrec
-  )
+import Prelude (String, Maybe(..), Read(..))
+
+-- $setup
+-- >>> import Prelude(Int)
 
 {-|
 Tries to deserialize a value using the 'Read'

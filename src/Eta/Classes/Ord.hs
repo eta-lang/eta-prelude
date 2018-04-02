@@ -18,21 +18,14 @@ False
 True
 -}
 module Eta.Classes.Ord
-  ( module Eta.Classes.Ord
-  , module Exported
+  ( Ord(..)
+  , Ordering(..)
+  , largestOf
+  , leastOf
   )
 where
 
-import Prelude as Exported
-  ( Ord
-  , Ordering(..)
-
-  , compare
-  , (<=)
-  , (<)
-  , (>=)
-  , (>)
-  )
+import Prelude(Ord(..), Ordering(..))
 
 {-|
 Returns the largest of the two arguments

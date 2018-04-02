@@ -8,16 +8,12 @@ like 'ByteString' or ByteArray
 -}
 module Eta.Classes.IsString
   ( module Eta.Classes.IsString
-  , module Exported
+  , IsString(..)
   )
 where
 
-import qualified Prelude
 import Prelude (String)
-import Data.String as Exported
-  ( IsString
-  , fromString
-  )
+import Data.String
 
 {-|
 Converts a String into another string-like type.

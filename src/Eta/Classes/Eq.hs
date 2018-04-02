@@ -6,14 +6,11 @@ True
 False
 -}
 module Eta.Classes.Eq
-  ( module Eta.Classes.Eq
-  , module Exported
-  )
-where
-
-import Prelude as Exported
   ( Eq
   , (==)
   , (/=)
   )
+where
+
+import Prelude
 

@@ -4,15 +4,8 @@ a numerical value into a full precision 'Rational'
 value
 -}
 module Eta.Classes.Real
-  ( module Eta.Classes.Real
-  , module Exported
-  , toRational
-  -- | The rational equivalent of its argument
+  ( Real(..)
   )
 where
 
-import Prelude (toRational)
-import Prelude as Exported
-  ( Real
-  )
-
+import Prelude (Real(..))

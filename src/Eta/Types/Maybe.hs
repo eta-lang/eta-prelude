@@ -16,8 +16,10 @@ module Eta.Types.Maybe
 where
 
 import Data.Maybe
-import Eta.Classes.Monoid ((<+>))
-import Eta.Classes.Show
+
+-- $setup
+-- >>> import Eta.Classes.Show
+-- >>> import Eta.Classes.Monoid
 
 {-|
 Extracts the element out of a 'Just'.
@@ -46,7 +48,7 @@ contents of the Maybe
 "Nothing found!"
 -}
 getOrElse :: Maybe a -> a -> a
-getOrElse x def = handleMaybe def (\x -> x) x
+getOrElse x def = handleMaybe def (\val -> val) x
 
 {-|
 Handler for the 'Maybe' type

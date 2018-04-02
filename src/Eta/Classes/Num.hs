@@ -12,24 +12,13 @@ operations:
 
 -}
 module Eta.Classes.Num
-  ( module Eta.Classes.Num
-  , module Exported
-  -- $negate
-  , negate
-  -- $fromInteger
-  , fromInteger
+  ( Num(..)
+  , absoluteValue
+  , numberSign
   )
 where
 
-import Prelude (negate, fromInteger)
-import Prelude as Exported
-  ( Num
-  , (+)
-  , (-)
-  , (*)
-  , abs
-  , signum
-  )
+import Prelude(Num(..))
 
 {-|
 Returns the absolute value

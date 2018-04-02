@@ -10,18 +10,16 @@ instances of 'Functor'.
 -}
 module Eta.Classes.Functor
   ( module Eta.Classes.Functor
-  ,module Exported
+  , Functor(fmap)
   )
 where
 
-import Prelude ((+),(-))
-import qualified Prelude
+import Data.Functor (Functor(fmap))
+
 import qualified Data.Functor
 
-import Data.Functor as Exported
- ( Functor
- ,fmap
- )
+-- $setup
+-- >>> import Prelude ((+))
 
 {-|
 Maps a function over a value
@@ -30,7 +28,7 @@ Maps a function over a value
 [2,3,4]
 -}
 map :: (Functor f) => (a -> b) -> f a -> f b
-map = Prelude.fmap
+map = Data.Functor.fmap
 
 
 -- *** Map forward
@@ -43,7 +41,7 @@ Maps the function of the right to the Functor of the left:
 
 -}
 (|$>) :: (Functor f) => f a -> (a -> b) -> f b
-(|$>) = Prelude.flip map
+(|$>) x f = f <$| x
 
 
 -- *** Map backwards
@@ -56,7 +54,7 @@ Maps the function of the left to the Functor of the right:
 
 -}
 (<$|) :: (Functor f) => (a -> b) -> f a -> f b
-(<$|) = map
+(<$|) = fmap
 
 
 -- *** Discard

@@ -26,23 +26,24 @@ Nothing
 -}
 module Eta.Classes.Traversable
   ( Traversable(traverse, sequenceA)
+  , for
+  , Eta.Classes.Traversable.sequence
   )
 where
 
 import Eta.Classes.Applicative
-import Eta.Classes.Integral
-import Eta.Types
 
 import Data.Traversable(Traversable(traverse, sequenceA))
 import qualified Data.Traversable
 
 -- $setup
--- >>> import Prelude (($), (+))
+-- >>> import Prelude hiding (sequence)
+-- >>> import Eta.Classes.Integral
 -- >>> :{
 -- safeDivide a b =
 --     if b == 0
 --     then Nothing
---     else Just (a `div` b)
+--     else Just (a `dividedBy` b)
 -- :}
 
 {-|

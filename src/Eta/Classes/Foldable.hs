@@ -27,16 +27,18 @@ module Eta.Classes.Foldable
 where
 
 import Eta.Classes.Applicative
-import Eta.Classes.Category
 import Eta.Classes.Eq
 import Eta.Classes.Monad
 import Eta.Classes.Num
 import Eta.Classes.Ord
-import Eta.Classes.Show
 import Eta.Types
 
 import Data.Foldable(Foldable(foldr, foldMap))
 import qualified Data.Foldable
+
+-- $ setup
+-- >>> import Eta.Classes.Show
+-- >>> import Eta.Types
 
 -- ** Foldable
 {-|

@@ -1,19 +1,15 @@
 -- | * __STUFF HERE IS WORK IN PROGRESS, IGNORE THIS MODULE__
-module Eta.Core
-  ( module Eta.Core
-  , module Eta.Classes
-  )
-where
+module Eta.Core where
 
-import Eta.Classes
-
-import Eta.Types.IO
+import Eta.Types.String
 
 import qualified Prelude
-import qualified Control.Arrow
-import qualified System.Environment
 
--- import Prelude as Exported
+-- $setup
+-- >>> import Eta.Classes.Num
+-- >>> import Eta.Classes.Functor
+-- >>> import Eta.Classes.Show
+-- >>> import Eta.Types.IO
 
 
 {-|
@@ -79,7 +75,7 @@ flip = Prelude.flip
 {-|
 Stops execution and displays an error message.
 -}
--- die :: HasCallStack => String -> a
+die :: String -> a
 die = Prelude.error
 {-# WARNING die "Partial functions should be avoided"#-}
 
@@ -91,6 +87,7 @@ appears.
 
 /Usually, also called __Bottom__/
 -}
+undefined :: a
 undefined = Prelude.undefined
 {-# WARNING undefined "Partial functions should be avoided"#-}
 
