@@ -34,7 +34,7 @@ import Prelude as Exported
 {-|
 Returns the absolute value
 
->>> absoluteValue -1
+>>> absoluteValue (-1)
 1
 >>> absoluteValue 1
 1
@@ -45,7 +45,7 @@ absoluteValue = abs
 {-|
 Returns the number sign
 
->>> numberSign -4
+>>> numberSign (-4)
 -1
 >>> numberSign 9
 1

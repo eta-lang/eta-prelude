@@ -16,6 +16,8 @@ module Eta.Types.Maybe
 where
 
 import Data.Maybe
+import Eta.Classes.Monoid ((<+>))
+import Eta.Classes.Show
 
 {-|
 Extracts the element out of a 'Just'.
@@ -65,4 +67,14 @@ result
 handleMaybe :: b -> (a -> b) -> Maybe a -> b
 handleMaybe = maybe
 
+
+{-|
+Discards all 'Nothing's from the list,
+returning all values
+
+>>> onlyJustValues [Just 1, Nothing, Just 2]
+[1,2]
+-}
+onlyJustValues :: [Maybe a] -> [a]
+onlyJustValues = catMaybes
 

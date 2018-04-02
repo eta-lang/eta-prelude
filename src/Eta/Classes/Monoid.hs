@@ -9,16 +9,20 @@ instances of 'Monoid'.
 /Mnemonic: Appendable/
 -}
 module Eta.Classes.Monoid
+  ( Monoid(mappend, mconcat, mempty)
+  , append
+  , neutral
+  , Eta.Classes.Monoid.concat
+  , (<+>)
+  )
 where
 
-import qualified Data.Monoid
+import Data.Monoid
 
-import Prelude as Exported
-  ( Monoid
-  , mappend
-  , mconcat
-  , mempty
-  )
+-- $setup
+-- >>> import Prelude ()
+-- >>> :set -XNoImplicitPrelude
+
 
 {-|
 Appends two values.
@@ -30,7 +34,6 @@ append :: (Monoid a) => a -> a -> a
 append = mappend
 
 
--- *** Monoid neutral element
 {-|
 A 'Monoid' also requires that the type has a neutral
 element that does not affect concatenation.
@@ -48,11 +51,11 @@ neutral :: (Monoid a) => a
 neutral = mempty
 
 
--- *** Monoid reduction
 {-|
 You can reduce a list of elements that implement the
 'Monoid' type class by using 'concat'
 
+>>> import Prelude ()
 >>> concat ["Hello ", "world", "!"]
 "Hello world!"
 
@@ -61,10 +64,8 @@ concat :: (Monoid a) => [a] -> a
 concat = mconcat
 
 
--- *** Append operator
 {-|
 Operator for the 'append' operation
-
 
 >>> "Hello " <+> "world!"
 "Hello world!"

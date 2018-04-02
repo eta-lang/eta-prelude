@@ -5,6 +5,8 @@ module Eta.Types.Bool
   ( Bool(..)
   , (&&)
   , (||)
+  , (==)
+  , (/=)
   , not
   , module Eta.Types.Bool
   )
@@ -12,6 +14,14 @@ where
 
 import Data.Bool hiding (otherwise, bool)
 import qualified Data.Bool
+import Prelude ((==), (/=))
+
+-- $setup
+-- >>> import Prelude (Int, foldl, (*))
+-- >>> :{
+--  factorial :: Int -> Int
+--  factorial n = foldl (*) 1 [1..n]
+-- :}
 
 {-|
 'otherwise' is defined as 'True'.
@@ -19,10 +29,10 @@ import qualified Data.Bool
 Used for guards:
 
 @
-factorial :: Int -> Int
-factorial n
- | n == 0      = 1
- | otherwise   = n * factorial (n - 1)
+ factorial :: Int -> Int
+ factorial n
+  | n == 0      = 1
+  | otherwise   = n * factorial (n - 1)
 @
 
 >>> factorial 3
@@ -31,11 +41,4 @@ factorial n
 otherwise :: Bool
 otherwise = Data.Bool.otherwise
 
-
--- >>> :{
---  factorial :: Int -> Int
---  factorial n
---   | n == 0      = 1
---   | otherwise   = n * factorial (n - 1)
--- :}
 

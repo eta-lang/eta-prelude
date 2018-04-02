@@ -11,7 +11,7 @@ where
 
 import qualified Prelude
 import qualified Text.Read
-import Prelude (String, Maybe(..))
+import Prelude (String, Maybe(..), Int)
 import Prelude as Exported
   ( Read
   , readsPrec
@@ -21,9 +21,9 @@ import Prelude as Exported
 Tries to deserialize a value using the 'Read'
 type class. If it fails, returns 'Nothing'
 
->>> read "1" :: Int
+>>> read "1" :: Maybe Int
 Just 1
->>> read "pizza" :: Int
+>>> read "pizza" :: Maybe Int
 Nothing
 -}
 read :: (Read a) => String -> Maybe a

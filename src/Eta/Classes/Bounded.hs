@@ -3,15 +3,13 @@
 -}
 module Eta.Classes.Bounded
   ( module Eta.Classes.Bounded
-  , module Exported
-  )
-where
-
-import Prelude as Exported
-  ( Bounded
+  , Bounded
   , minBound
   , maxBound
   )
+where
+
+import Prelude
 
 {-|
 Returns the lower limit of a type

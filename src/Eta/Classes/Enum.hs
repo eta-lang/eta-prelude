@@ -3,17 +3,14 @@ sequentially ordered types
 -}
 module Eta.Classes.Enum
   ( module Eta.Classes.Enum
-  , module Exported
+  , Enum
+  , toEnum
+  , fromEnum
   )
 where
 
 import qualified Prelude
-import Prelude (Int)
-import Prelude as Exported
-  ( Enum
-  , toEnum
-  , fromEnum
-  )
+import Prelude
 
 
 {-|

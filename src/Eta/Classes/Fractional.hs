@@ -7,16 +7,15 @@ and how are they are divided:
 -}
 module Eta.Classes.Fractional
   ( module Eta.Classes.Fractional
-  , module Exported
-  )
-where
-
-import Prelude as Exported
-  ( Fractional
+  , Fractional
   , (/)
+  , (**)
   , recip
   , fromRational
   )
+where
+
+import Prelude
 
 {-|
 Inverts the fraction

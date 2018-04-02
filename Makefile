@@ -1,9 +1,9 @@
 PHONY: build
 
 FILES=`find ./src -iregex '.*\.\(hs\)'`
+DOCFILES=`find . -iregex '.*\.\(hs\)'`
 
 build:
-			cd src && doctest Eta/Core.hs
+			cd src && doctest -XNoImplicitPrelude ${DOCFILES}
 			haddock -h -o docs ${FILES}
-			# mv docs/Eta.html docs/index.html
 

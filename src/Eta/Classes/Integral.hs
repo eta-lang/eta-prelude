@@ -4,13 +4,7 @@ and how are they able to be divided
 -}
 module Eta.Classes.Integral
   ( module Eta.Classes.Integral
-  , module Exported
-  )
-where
-
--- import Prelude (toRational)
-import Prelude as Exported
-  ( Integral
+  , Integral
   , quot
   , rem
   , div
@@ -18,7 +12,13 @@ import Prelude as Exported
   , quotRem
   , divMod
   , toInteger
+  , (^)
+  , (^^)
   )
+where
+
+-- import Prelude (toRational)
+import Prelude
 
 {-|
 Integer division, rounded down
@@ -50,3 +50,17 @@ Returns result of the division and its remainder
 -}
 divideWithRemainder :: (Integral a) => a -> a -> (a, a)
 divideWithRemainder = divMod
+
+{-|
+>>> isEven 2
+True
+-}
+isEven :: (Integral a) => a -> Bool
+isEven x = (x `modulus` 2) == 0
+
+{-|
+>>> isOdd 2
+False
+-}
+isOdd :: (Integral a) => a -> Bool
+isOdd x = (x `modulus` 2) /= 0
