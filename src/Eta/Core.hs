@@ -1,4 +1,4 @@
--- | * __STUFF HERE IS WORK IN PROGRESS, IGNORE THIS MODULE__
+-- | * Eta Core
 module Eta.Core where
 
 import Eta.Types.String
