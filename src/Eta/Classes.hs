@@ -14,6 +14,7 @@ import Eta.Classes.Floating as Exported
 import Eta.Classes.Foldable as Exported hiding (foldr)
 import Eta.Classes.Fractional as Exported hiding (recip)
 import Eta.Classes.Functor as Exported hiding (fmap)
+import Eta.Classes.Generic as Exported
 import Eta.Classes.Integral as Exported hiding (quot, rem, div, mod, quotRem, divMod)
 import Eta.Classes.IsString as Exported hiding (fromString)
 import Eta.Classes.Monad as Exported hiding ((>>=))
