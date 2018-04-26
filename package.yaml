@@ -1,5 +1,5 @@
 name:                eta-prelude
-version:             0.2.0
+version:             0.3.0
 synopsis:            The Eta prelude
 description:         Please see README.md
 homepage:            https://github.com/typelead/eta
@@ -12,5 +12,7 @@ category:            Language
 library:
   exposed-modules:    Eta
   default-extensions: NoImplicitPrelude
-  dependencies:       base >= 4 && < 5
+  dependencies:
+    - base >= 4 && < 5
+    - transformers
   source-dirs:      src

@@ -1,4 +1,4 @@
-PHONY: build docs
+.PHONY: build docs
 
 FILES=`find ./src -iregex '.*\.\(hs\)'`
 DOCFILES=`find . -iregex '.*\.\(hs\)'`

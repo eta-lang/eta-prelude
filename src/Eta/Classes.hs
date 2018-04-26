@@ -18,6 +18,7 @@ import Eta.Classes.Generic as Exported
 import Eta.Classes.Integral as Exported hiding (quot, rem, div, mod, quotRem, divMod)
 import Eta.Classes.IsString as Exported hiding (fromString)
 import Eta.Classes.Monad as Exported hiding ((>>=))
+import Eta.Classes.MonadTrans as Exported
 import Eta.Classes.Monoid as Exported
 import Eta.Classes.Num as Exported hiding (abs, signum)
 import Eta.Classes.Ord as Exported

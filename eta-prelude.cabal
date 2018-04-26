@@ -2,10 +2,10 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ba97beeabbafc893bb8065143e121492afe977b1c7564d7c51a43a268b18bc77
+-- hash: 982169364dc7e1f96608940bfcc199bb998eabfbd3101daba27de462595ade15
 
 name:                eta-prelude
-version:             0.2.0
+version:             0.3.0
 synopsis:            The Eta prelude
 description:         Please see README.md
 homepage:            https://github.com/typelead/eta
@@ -36,6 +36,8 @@ library
       Eta.Classes.Integral
       Eta.Classes.IsString
       Eta.Classes.Monad
+      Eta.Classes.MonadTrans
+      Eta.Classes.MonadTrans.Except
       Eta.Classes.Monoid
       Eta.Classes.Num
       Eta.Classes.Ord
@@ -59,6 +61,7 @@ library
   default-extensions: NoImplicitPrelude
   build-depends:
       base >=4 && <5
+    , transformers
   hs-source-dirs:
       src
   default-language: Haskell2010
