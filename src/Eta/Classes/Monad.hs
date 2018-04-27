@@ -37,6 +37,15 @@ module Eta.Classes.Monad
   Inverted '(>=>)'
   -}
   , (<=<)
+
+  {-|
+  Executes a monadic action forever:
+
+  @
+  print "Hi" |> forever
+  @
+  -}
+  , Control.Monad.forever
   )
 where
 
